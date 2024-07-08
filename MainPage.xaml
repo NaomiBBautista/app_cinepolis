@@ -1,0 +1,971 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="TDMPW_2P_EX.MainPage"
+            BarBackgroundColor="#000b1d"
+            BarTextColor="White"
+            UnselectedTabColor="White"
+            SelectedTabColor="#36c4d1">
+    <!-- Colores
+        Blanco: #ffffff
+        Azul Fuerte: #000b1d 
+        Azul Medio: #062553
+        Azul Claro: #448bf7
+        Azul Pastel: #36c4d1
+        Gris: #f4f5f7
+        Cambiar NavigationPage, Page -->
+    <!-- PÁGINA PELÍCULAS -->
+    <ContentPage Title="Películas"
+                 IconImageSource="action.png"
+                 BackgroundColor="White">
+        <ScrollView>
+            <VerticalStackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition Height="250" />
+                        <RowDefinition Height="250" />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <!-- Header -->
+                    <BoxView Grid.Row="0"
+                             Grid.ColumnSpan="2"
+                             Color="#000b1d"
+                             HorizontalOptions="Fill"
+                             VerticalOptions="Fill" />
+                    <HorizontalStackLayout Grid.Row="0"
+                                           Grid.ColumnSpan="2">
+                        <Label Text="Cartelera"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               FontFamily="Marine"
+                               FontSize="35"
+                               Style="{StaticResource Headline}"
+                               SemanticProperties.HeadingLevel="Level1"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               Margin="40,10,0,5" />
+                        <Image Source="flecha.png"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               HeightRequest="20"
+                               Margin="10,0,250,10" />
+                        <Image Source="menu.png"
+                               HorizontalOptions="End"
+                               VerticalOptions="Start"
+                               HeightRequest="40"
+                               Margin="230,10,20,10" />
+                    </HorizontalStackLayout>
+                    <!-- Carrusel Imagénes -->
+                    <CarouselView Grid.Row="1"
+                                  Grid.ColumnSpan="2"
+                                  x:Name="carouselView"
+                                  PeekAreaInsets="20"
+                                  Margin="10"
+                                  IndicatorView="indicatorView"
+                                  HeightRequest="400"
+                                  HorizontalOptions="Center"
+                                  VerticalOptions="Center">
+                        <CarouselView.ItemsSource>
+                            <x:Array Type="{x:Type ImageSource}">
+                                <FileImageSource File="imagen6.jpg" />
+                                <FileImageSource File="imagen8.jpg" />
+                                <FileImageSource File="imagen9.jpg" />
+                                <FileImageSource File="imagen10.jpg" />
+                            </x:Array>
+                        </CarouselView.ItemsSource>
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame Margin="30,0,30,0"
+                                       BorderColor="White"
+                                       CornerRadius="85"
+                                       BackgroundColor="White"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       IsClippedToBounds="True"
+                                       HeightRequest="400">
+                                    <Image Source="{Binding .}"
+                                           Aspect="Fill"
+                                           Margin="-20"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Start"
+                                           HeightRequest="400" />
+                                </Frame>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                    <IndicatorView x:Name="indicatorView"
+                                   Grid.Row="1"
+                                   Grid.ColumnSpan="2"
+                                   Margin="0, 0, 0, 20"
+                                   IndicatorColor="#36c4d1"
+                                   SelectedIndicatorColor="#448bf7"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="End" />
+                    <!-- Label Separador -->
+                    <BoxView Grid.Row="2"
+                             Grid.ColumnSpan="2"
+                             Color="#448bf7"
+                             CornerRadius="50"
+                             HorizontalOptions="Fill"
+                             VerticalOptions="Fill"
+                             Margin="50,5" />
+                    <HorizontalStackLayout Grid.Row="2"
+                                           Grid.ColumnSpan="2"
+                                           HorizontalOptions="Fill">
+                        <Label Text="Todos los cines"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               FontFamily="Heavy"
+                               FontSize="20"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Margin="300,10,50,10" />
+                        <Image Source="flecha.png"
+                               HorizontalOptions="End"
+                               VerticalOptions="Center"
+                               HeightRequest="20"
+                               Margin="150,10,50,10" />
+                    </HorizontalStackLayout>
+                    <!-- Galería de Imágenes 1 -->
+                    <Frame Grid.Row="3"
+                           Grid.RowSpan="2"
+                           Grid.Column="0"
+                           Margin="10,0,0,0"
+                           BorderColor="White"
+                           CornerRadius="100"
+                           BackgroundColor="White"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           IsClippedToBounds="True">
+                        <Image Source="imagen1.jpg"
+                               Aspect="Fill"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Start" />
+                    </Frame>
+                    <Frame Grid.Row="3"
+                           Grid.Column="1"
+                           BorderColor="White"
+                           CornerRadius="40"
+                           BackgroundColor="White"
+                           Margin="10"
+                           HeightRequest="225"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           IsClippedToBounds="True">
+                        <Image Source="imagen5.png"
+                               Aspect="Fill"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Start"
+                               Margin="-20" />
+                    </Frame>
+                    <Frame Grid.Row="4"
+                           Grid.Column="1"
+                           BorderColor="White"
+                           CornerRadius="40"
+                           BackgroundColor="White"
+                           HeightRequest="225"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           IsClippedToBounds="True"
+                           Margin="10">
+                        <Image Source="imagen7.jpg"
+                               Aspect="Fill"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Start"
+                               Margin="-20" />
+                    </Frame>
+                    <!-- Galería de Imágenes 2 -->
+                    <HorizontalStackLayout Grid.Row="5"
+                                           Grid.ColumnSpan="2"
+                                           HorizontalOptions="Fill">
+                        <Frame Margin="5,5,3,40"
+                               BorderColor="White"
+                               CornerRadius="40"
+                               BackgroundColor="White"
+                               HeightRequest="350"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               IsClippedToBounds="True">
+                            <Image Source="imagen2.jpg"
+                                   Aspect="Fill"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Start"
+                                   Margin="-20" />
+                        </Frame>
+                        <Frame Margin="5,5,5,40"
+                               BorderColor="White"
+                               CornerRadius="40"
+                               BackgroundColor="White"
+                               HeightRequest="350"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               IsClippedToBounds="True">
+                            <Image Source="imagen3.jpg"
+                                   Aspect="Fill"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Start"
+                                   Margin="-20" />
+                        </Frame>
+                        <Frame Margin="3,5,3,40"
+                               BorderColor="White"
+                               CornerRadius="45"
+                               BackgroundColor="White"
+                               HeightRequest="350"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               IsClippedToBounds="True">
+                            <Image Source="imagen4.jpg"
+                                   Aspect="Fill"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Start"
+                                   Margin="-20" />
+                        </Frame>
+                    </HorizontalStackLayout>
+                    <!-- Footer -->
+                    <BoxView Grid.Row="6"
+                             Grid.ColumnSpan="2"
+                             Color="#000b1d"
+                             HeightRequest="50"
+                             HorizontalOptions="Fill"
+                             VerticalOptions="Fill" />
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage>
+    <!-- PÁGINA ALIMENTOS -->
+    <ContentPage Title="Alimentos"
+                 IconImageSource="popcorn.png"
+                 BackgroundColor="White">
+        <ScrollView>
+            <VerticalStackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <!-- Header -->
+                    <BoxView Grid.Row="0"
+                             Grid.ColumnSpan="3"
+                             Color="#000b1d"
+                             HorizontalOptions="Fill"
+                             VerticalOptions="Fill" />
+                    <HorizontalStackLayout Grid.Row="0"
+                                           Grid.ColumnSpan="3">
+                        <Image Source="izquierda.png"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               HeightRequest="40"
+                               Margin="20,10,70,10" />
+                        <Label x:Name="txtAlimentos"
+                               Text="Combos"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               FontFamily="Marine"
+                               FontSize="35"
+                               Style="{StaticResource Headline}"
+                               SemanticProperties.HeadingLevel="Level1"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Margin="150,10"
+                               WidthRequest="230" />
+                        <Image Source="lupa.png"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               HeightRequest="40"
+                               Margin="0,10,5,10" />
+                        <Image Source="carrito.png"
+                               HorizontalOptions="End"
+                               VerticalOptions="Start"
+                               HeightRequest="40"
+                               Margin="5,10" />
+                    </HorizontalStackLayout>
+                    <!-- Cambiar Combos -->
+                    <HorizontalStackLayout Grid.Row="1"
+                                           Grid.ColumnSpan="3">
+                        <Frame Margin="30,10,10,20"
+                               BorderColor="#000b1d"
+                               CornerRadius="10"
+                               BackgroundColor="White"
+                               HeightRequest="150"
+                               WidthRequest="150"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               IsClippedToBounds="True">
+                            <ImageButton Source="combo.png"
+                                         HeightRequest="100"
+                                         WidthRequest="100"
+                                         Clicked="cambiarCombo" />
+                        </Frame>
+                        <Frame Margin="10,10,10,20"
+                               BorderColor="#000b1d"
+                               CornerRadius="10"
+                               BackgroundColor="White"
+                               HeightRequest="150"
+                               WidthRequest="150"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               IsClippedToBounds="True">
+                            <ImageButton Source="maxicombo.png"
+                                         HeightRequest="100"
+                                         WidthRequest="100"
+                                         Clicked="cambiarMaxi" />
+                        </Frame>
+                    </HorizontalStackLayout>
+                    <!-- Sección Combos Clásicos -->
+                    <Label Grid.Row="2"
+                           Grid.ColumnSpan="3"
+                           x:Name="tituloSec1"
+                           Text="Clásicos"
+                           TextColor="#000b1d"
+                           FontAttributes="Bold"
+                           FontFamily="Heavy"
+                           FontSize="30"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"
+                           Margin="30,40,10,0" />
+                    <!-- Combo Clásico 1 -->
+                    <VerticalStackLayout Grid.Row="3"
+                                         Grid.Column="0">
+                        <Frame Margin="60,5,5,0"
+                               BorderColor="#f4f5f7"
+                               CornerRadius="25"
+                               BackgroundColor="#f4f5f7"
+                               HeightRequest="200"
+                               WidthRequest="200"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Start"
+                               IsClippedToBounds="True">
+                            <Image x:Name="imgCombo1"
+                                   Source="combo1.png"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   HeightRequest="180"
+                                   WidthRequest="180"
+                                   Margin="-10" />
+                        </Frame>
+                        <Label x:Name="lblCombo1"
+                               Text="Cuates"
+                               FontSize="20"
+                               FontFamily="Heavy"
+                               TextColor="#062553"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Margin="60,5,5,0"
+                               WidthRequest="200" />
+                        <Label x:Name="preCombo1"
+                               Text="$223.00"
+                               FontSize="15"
+                               FontFamily="Nexa"
+                               TextColor="#062553"
+                               HorizontalOptions="Center"
+                               VerticalOptions="End"
+                               WidthRequest="200"
+                               Margin="60,5,5,0" />
+                    </VerticalStackLayout>
+                    <!-- Combo Clásico 2 -->
+                    <VerticalStackLayout Grid.Row="3"
+                                         Grid.Column="1">
+                        <Frame Margin="5,5,5,0"
+                               BorderColor="#f4f5f7"
+                               CornerRadius="25"
+                               BackgroundColor="#f4f5f7"
+                               HeightRequest="200"
+                               WidthRequest="200"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Start"
+                               IsClippedToBounds="True">
+                            <Image x:Name="imgCombo2"
+                                   Source="combo2.png"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   HeightRequest="180"
+                                   WidthRequest="180"
+                                   Margin="-10" />
+                        </Frame>
+                        <Label x:Name="lblCombo2"
+                               Text="Nachos en Pareja"
+                               FontSize="20"
+                               FontFamily="Heavy"
+                               TextColor="#062553"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Margin="5,5,5,0"
+                               WidthRequest="200" />
+                        <Label x:Name="preCombo2"
+                               Text="$200.00"
+                               FontSize="15"
+                               FontFamily="Nexa"
+                               TextColor="#062553"
+                               HorizontalOptions="Center"
+                               VerticalOptions="End"
+                               WidthRequest="200"
+                               Margin="5,5,5,0" />
+                    </VerticalStackLayout>
+                    <!-- Combo Clásico 3 -->
+                    <VerticalStackLayout Grid.Row="3"
+                                         Grid.Column="2">
+                        <Frame Margin="5,5,50,0"
+                               BorderColor="#f4f5f7"
+                               CornerRadius="25"
+                               BackgroundColor="#f4f5f7"
+                               HeightRequest="200"
+                               WidthRequest="200"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Start"
+                               IsClippedToBounds="True">
+                            <Image x:Name="imgCombo3"
+                                   Source="combo3.png"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   HeightRequest="180"
+                                   WidthRequest="180"
+                                   Margin="-10" />
+                        </Frame>
+                        <Label x:Name="lblCombo3"
+                               Text="Individual"
+                               FontSize="20"
+                               FontFamily="Heavy"
+                               TextColor="#062553"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Margin="5,5,50,0"
+                               WidthRequest="200" />
+                        <Label x:Name="preCombo3"
+                               Text="$132.00"
+                               FontSize="15"
+                               FontFamily="Nexa"
+                               TextColor="#062553"
+                               HorizontalOptions="Center"
+                               VerticalOptions="End"
+                               WidthRequest="200"
+                               Margin="5,5,50,0" />
+                    </VerticalStackLayout>
+                    <!-- Sección Combos Especiales -->
+                    <Label Grid.Row="4"
+                           Grid.ColumnSpan="3"
+                           x:Name="tituloSec2"
+                           Text="Especiales"
+                           TextColor="#000b1d"
+                           FontAttributes="Bold"
+                           FontFamily="Heavy"
+                           FontSize="30"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"
+                           Margin="30,60,10,0" />
+                    <!-- Combos Especial 1 -->
+                    <VerticalStackLayout Grid.Row="5"
+                                         Grid.Column="0">
+                        <Frame Margin="60,5,5,0"
+                               BorderColor="#f4f5f7"
+                               CornerRadius="25"
+                               BackgroundColor="#f4f5f7"
+                               HeightRequest="200"
+                               WidthRequest="200"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Start"
+                               IsClippedToBounds="True">
+                            <Image x:Name="imgCombo4"
+                                   Source="combo4.png"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   HeightRequest="180"
+                                   WidthRequest="180"
+                                   Margin="-10" />
+                        </Frame>
+                        <Label x:Name="lblCombo4"
+                               Text="Barbie"
+                               FontSize="20"
+                               FontFamily="Heavy"
+                               TextColor="#062553"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Margin="60,5,5,0"
+                               WidthRequest="200" />
+                        <Label x:Name="preCombo4"
+                               Text="$210.00"
+                               FontSize="15"
+                               FontFamily="Nexa"
+                               TextColor="#062553"
+                               HorizontalOptions="Center"
+                               VerticalOptions="End"
+                               WidthRequest="200"
+                               Margin="60,5,5,0" />
+                    </VerticalStackLayout>
+                    <!-- Combos Especial 2 -->
+                    <VerticalStackLayout Grid.Row="5"
+                                         Grid.Column="1">
+                        <Frame Margin="5,5,5,0"
+                               BorderColor="#f4f5f7"
+                               CornerRadius="25"
+                               BackgroundColor="#f4f5f7"
+                               HeightRequest="200"
+                               WidthRequest="200"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Start"
+                               IsClippedToBounds="True">
+                            <Image x:Name="imgCombo5"
+                                   Source="combo5.png"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   HeightRequest="180"
+                                   WidthRequest="180"
+                                   Margin="-10" />
+                        </Frame>
+                        <Label x:Name="lblCombo5"
+                               Text="Princesa Peach"
+                               FontSize="20"
+                               FontFamily="Heavy"
+                               TextColor="#062553"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Margin="5,5,5,0"
+                               WidthRequest="200" />
+                        <Label x:Name="preCombo5"
+                               Text="$ 90.00"
+                               FontSize="15"
+                               FontFamily="Nexa"
+                               TextColor="#062553"
+                               HorizontalOptions="Center"
+                               VerticalOptions="End"
+                               WidthRequest="200"
+                               Margin="5,5,5,0" />
+                    </VerticalStackLayout>
+                    <!-- Combos Especial 3 -->
+                    <VerticalStackLayout Grid.Row="5"
+                                         Grid.Column="2">
+                        <Frame Margin="5,5,50,0"
+                               BorderColor="#f4f5f7"
+                               CornerRadius="25"
+                               BackgroundColor="#f4f5f7"
+                               HeightRequest="200"
+                               WidthRequest="200"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Start"
+                               IsClippedToBounds="True">
+                            <Image x:Name="imgCombo6"
+                                   Source="combo6.png"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"
+                                   HeightRequest="180"
+                                   WidthRequest="180"
+                                   Margin="-10" />
+                        </Frame>
+                        <Label x:Name="lblCombo6"
+                               Text="Kung Fu Panda 4"
+                               FontSize="20"
+                               FontFamily="Heavy"
+                               TextColor="#062553"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Margin="5,5,50,0"
+                               WidthRequest="200" />
+                        <Label x:Name="preCombo6"
+                               Text="$175.00"
+                               FontSize="15"
+                               FontFamily="Nexa"
+                               TextColor="#062553"
+                               HorizontalOptions="Center"
+                               VerticalOptions="End"
+                               WidthRequest="200"
+                               Margin="5,5,50,0" />
+                    </VerticalStackLayout>
+                    <!-- Footer -->
+                    <BoxView Grid.Row="6"
+                             Grid.ColumnSpan="3"
+                             Color="#000b1d"
+                             HeightRequest="50"
+                             HorizontalOptions="Fill"
+                             VerticalOptions="Fill"
+                             Margin="0,40,0,0" />
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage>
+    <!-- PÁGINA PERFIL -->
+    <ContentPage Title="Perfil"
+                 IconImageSource="usuario.png"
+                 BackgroundColor="White">
+        <ScrollView>
+            <VerticalStackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="500" />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <!-- Header -->
+                    <BoxView Grid.Row="0"
+                             Grid.ColumnSpan="3"
+                             Color="#000b1d"
+                             HorizontalOptions="Fill"
+                             VerticalOptions="Fill" />
+                    <HorizontalStackLayout Grid.Row="0"
+                                           Grid.ColumnSpan="3">
+                        <Image Source="izquierda.png"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               HeightRequest="40"
+                               Margin="20,10,70,10" />
+                        <Label Text="Personalización"
+                               TextColor="White"
+                               FontAttributes="Bold"
+                               FontFamily="Marine"
+                               FontSize="35"
+                               Style="{StaticResource Headline}"
+                               SemanticProperties.HeadingLevel="Level1"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Margin="100,10" />
+                    </HorizontalStackLayout>
+                    <!-- Imágen Principal -->
+                    <Frame Grid.Row="1"
+                           Grid.ColumnSpan="3"
+                           Margin="10"
+                           BorderColor="#f4f5f7"
+                           CornerRadius="50"
+                           BackgroundColor="#f4f5f7"
+                           HeightRequest="400"
+                           WidthRequest="700"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Start"
+                           IsClippedToBounds="True">
+                        <Image x:Name="imgPrincipal"
+                               Source="palomitas.png"
+                               Aspect="Fill"
+                               Margin="-10"
+                               HeightRequest="400"
+                               WidthRequest="400"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                    </Frame>
+                    <!-- Detalles del Combo -->
+                    <Label Grid.Row="2"
+                           Grid.Column="0"
+                           x:Name="tituloPrincipal"
+                           Text="Combo Tradicional"
+                           TextColor="#000b1d"
+                           FontAttributes="Bold"
+                           FontFamily="Heavy"
+                           FontSize="30"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"
+                           Margin="40,10,10,0"
+                           WidthRequest="400" />
+                    <Label Grid.Row="2"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="2"
+                           x:Name="precioPrincipal"
+                           Text="$ 90.00"
+                           TextColor="#000b1d"
+                           FontAttributes="Bold"
+                           FontFamily="Heavy"
+                           FontSize="30"
+                           HorizontalOptions="End"
+                           VerticalOptions="Center"
+                           Margin="10,10,40,0"
+                           WidthRequest="150" />
+                    <Label Grid.Row="3"
+                           Grid.ColumnSpan="3"
+                           x:Name="desPrincipal"
+                           Text="Tu combo personalizado incluye Palomitas Jumbo para llevar (285 gr) [$90.00 c/u]."
+                           TextColor="#000b1d"
+                           FontFamily="Nexa"
+                           FontSize="15"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"
+                           Margin="40,5,40,10"
+                           WidthRequest="650"
+                           HeightRequest="80" />
+                    <!-- Cantidad -->
+                    <Label Grid.Row="4"
+                           Grid.Column="0"
+                           Text="Cantidad"
+                           TextColor="#000b1d"
+                           FontAttributes="Bold"
+                           FontFamily="Heavy"
+                           FontSize="25"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"
+                           Margin="40,10,10,10"
+                           WidthRequest="200" />
+                    <BoxView Grid.Row="4"
+                             Grid.Column="1"
+                             Color="#448bf7"
+                             CornerRadius="5"
+                             HeightRequest="35"
+                             WidthRequest="66"
+                             HorizontalOptions="End"
+                             VerticalOptions="Center"
+                             Margin="40,10,0,10" />
+                    <Stepper Grid.Row="4"
+                             Grid.Column="1"
+                             x:Name="stpCantidad"
+                             Minimum="1"
+                             Maximum="5"
+                             Increment="1"
+                             ValueChanged="OnCantidad"
+                             Background="#448bf7"
+                             BackgroundColor="#448bf7"
+                             Margin="40,10,0,10"
+                             HorizontalOptions="End"
+                             VerticalOptions="Center" />
+                    <Label Grid.Row="4"
+                           Grid.Column="2"
+                           Text="1"
+                           x:Name="numCantidad"
+                           FontFamily="Heavy"
+                           FontSize="25"
+                           TextColor="#448bf7"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Margin="-10,10,60,10"
+                           WidthRequest="20" />
+                    <!-- Cambiar Combo Personalizado -->
+                    <VerticalStackLayout Grid.Row="5"
+                                         Grid.ColumnSpan="3">
+                        <!-- Agregar Palomitas -->
+                        <Frame BorderColor="#000b1d"
+                               CornerRadius="35"
+                               BackgroundColor="White"
+                               Margin="40,5,60,10"
+                               WidthRequest="630"
+                               HeightRequest="100"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               IsClippedToBounds="True">
+                            <HorizontalStackLayout>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="400" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Row="0"
+                                           Grid.Column="0"
+                                           Source="palomitasmaiz.png"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Center"
+                                           HeightRequest="40"
+                                           Margin="10" />
+                                    <Button Grid.Row="0"
+                                            Grid.Column="1"
+                                            x:Name="palomitas"
+                                            CornerRadius="50"
+                                            Text="Palomitas"
+                                            Clicked="agregarPalomitas"
+                                            FontSize="20"
+                                            BackgroundColor="White"
+                                            TextColor="#000b1d"
+                                            FontFamily="Havy"
+                                            HorizontalOptions="Start"
+                                            VerticalOptions="Center"
+                                            WidthRequest="150"
+                                            Margin="0,10,40,10" />
+                                    <Image Grid.Row="0"
+                                           Grid.Column="2"
+                                           Source="anadir.png"
+                                           HorizontalOptions="End"
+                                           VerticalOptions="Center"
+                                           HeightRequest="20"
+                                           Margin="80,10,10,10" />
+                                </Grid>
+                            </HorizontalStackLayout>
+                        </Frame>
+                        <!-- Agregar Refrescos -->
+                        <Frame BorderColor="#000b1d"
+                               CornerRadius="35"
+                               BackgroundColor="White"
+                               Margin="40,5,60,10"
+                               WidthRequest="630"
+                               HeightRequest="100"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               IsClippedToBounds="True">
+                            <HorizontalStackLayout>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="400" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Row="0"
+                                           Grid.Column="0"
+                                           Source="refresco.png"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Center"
+                                           HeightRequest="40"
+                                           Margin="10" />
+                                    <Button Grid.Row="0"
+                                            Grid.Column="1"
+                                            x:Name="refrescos"
+                                            CornerRadius="50"
+                                            Text="Refresco"
+                                            FontSize="20"
+                                            BackgroundColor="White"
+                                            TextColor="#000b1d"
+                                            FontFamily="Havy"
+                                            Clicked="agregarRefrescos"
+                                            HorizontalOptions="Start"
+                                            VerticalOptions="Center"
+                                            WidthRequest="150"
+                                            Margin="0,10,40,10" />
+                                    <Image Grid.Row="0"
+                                           Grid.Column="2"
+                                           Source="anadir.png"
+                                           HorizontalOptions="End"
+                                           VerticalOptions="Center"
+                                           HeightRequest="20"
+                                           Margin="80,10,10,10" />
+                                </Grid>
+                            </HorizontalStackLayout>
+                        </Frame>
+                        <!-- Agregar Nachos -->
+                        <Frame BorderColor="#000b1d"
+                               CornerRadius="35"
+                               BackgroundColor="White"
+                               Margin="40,5,60,10"
+                               WidthRequest="630"
+                               HeightRequest="100"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               IsClippedToBounds="True">
+                            <HorizontalStackLayout>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="400" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Row="0"
+                                           Grid.Column="0"
+                                           Source="nachos.png"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Center"
+                                           HeightRequest="40"
+                                           Margin="10" />
+                                    <Button Grid.Row="0"
+                                            Grid.Column="1"
+                                            x:Name="nachos"
+                                            CornerRadius="50"
+                                            Text="Nachos"
+                                            Clicked="agregarNachos"
+                                            FontSize="20"
+                                            BackgroundColor="White"
+                                            TextColor="#000b1d"
+                                            FontFamily="Havy"
+                                            HorizontalOptions="Start"
+                                            VerticalOptions="Center"
+                                            WidthRequest="150"
+                                            Margin="0,10,40,10" />
+                                    <Image Grid.Row="0"
+                                           Grid.Column="2"
+                                           Source="anadir.png"
+                                           HorizontalOptions="End"
+                                           VerticalOptions="Center"
+                                           HeightRequest="20"
+                                           Margin="80,10,10,10" />
+                                </Grid>
+                            </HorizontalStackLayout>
+                        </Frame>
+                        <!-- Agregar HotDogs -->
+                        <Frame BorderColor="#000b1d"
+                               CornerRadius="35"
+                               BackgroundColor="White"
+                               Margin="40,5,60,10"
+                               WidthRequest="630"
+                               HeightRequest="100"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               IsClippedToBounds="True">
+                            <HorizontalStackLayout>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="400" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Row="0"
+                                           Grid.Column="0"
+                                           Source="pancho.png"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Center"
+                                           HeightRequest="40"
+                                           Margin="10" />
+                                    <Button Grid.Row="0"
+                                            Grid.Column="1"
+                                            x:Name="panchos"
+                                            CornerRadius="50"
+                                            Text="HotDogs"
+                                            Clicked="agregarPanchos"
+                                            FontSize="20"
+                                            BackgroundColor="White"
+                                            TextColor="#000b1d"
+                                            FontFamily="Havy"
+                                            HorizontalOptions="Start"
+                                            VerticalOptions="Center"
+                                            WidthRequest="150"
+                                            Margin="0,10,40,10" />
+                                    <Image Grid.Row="0"
+                                           Grid.Column="2"
+                                           Source="anadir.png"
+                                           HorizontalOptions="End"
+                                           VerticalOptions="Center"
+                                           HeightRequest="20"
+                                           Margin="80,10,10,10" />
+                                </Grid>
+                            </HorizontalStackLayout>
+                        </Frame>
+                    </VerticalStackLayout>
+                    <!-- Footer -->
+                    <BoxView Grid.Row="6"
+                             Grid.ColumnSpan="3"
+                             Color="#000b1d"
+                             HeightRequest="50"
+                             HorizontalOptions="Fill"
+                             VerticalOptions="Fill"
+                             Margin="0,40,0,0" />
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage>
+</TabbedPage>
