@@ -12,18 +12,21 @@ La aplicación permitirá navegar entre paginas con un `TabbedPage`, todas las i
 ![Funcionalidad](imagenes/ejemplo_funcionalidad.png)
 
 ## Capturas de Pantalla
-**Películas**
+### **Películas**
+<div align="center">
+    <img src="imagenes/peliculas.png" alt="Página de películas" />
+</div>
 
-![Página de películas](imagenes/peliculas.png)
+### **Alimentos**
+<div align="center">
+    <img src="imagenes/combos.png" alt="Página de Combos" />
+</div>
 
+<div align="center">
+    <img src="imagenes/maxicombos.png" alt="Página de Maxicombos" />
+</div>
 
-**Alimentos**
-
-![Página de Combos](imagenes/combos.png)
-
-![Página de Maxicombos](imagenes/maxicombos.png)
-
-
-**Personalización**
-
-![Página de personalizacion](imagenes/personalizacion.png)
+### **Personalización**
+<div align="center">
+    <img src="imagenes/personalizacion.png" alt="Página de personalizacion" />
+</div>
